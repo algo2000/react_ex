@@ -1,5 +1,17 @@
 import { useState } from "react"
-import {useInput} from './useInput'
+import { useInput } from './useInput'
+import { useTabs } from './useTabs'
+
+const content = [
+  {
+    tab: 'Section 1',
+    content: 'Section 1 content'
+  },
+  {
+    tab: 'Section 2',
+    content: 'Section 2 content'
+  }
+]
 
 const App = () => {
   // UseState
@@ -11,6 +23,9 @@ const App = () => {
   const maxLen = (value) => !value.includes("@")
   const name = useInput('Mr.', maxLen)
 
+  //UseTab
+  const { currentItem, changeItem } = useTabs(0, content)
+
   return (
     <div className='App'>
       <div>
@@ -21,6 +36,13 @@ const App = () => {
       <div>
         <h1>2. UseInput</h1>
         <input placeholder='Name' {...name} />
+      </div>
+      <div>
+        <h1>3. UseTab</h1>
+        {content.map((section,index) => (
+          <button onClick={() => changeItem(index)}>{section.tab}</button>
+        ))}
+        <div>{currentItem.content}</div>
       </div>
     </div>
   );
