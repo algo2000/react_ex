@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const App = () => {
   const [item, setItem] = useState(1);
   const incrementItem = () => setItem(item + 1)
