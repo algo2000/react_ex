@@ -1,21 +1,15 @@
-import { useState } from "react";
-
-const useInput = (initialVale) => {
-  const [value, setValue] = useState(initialVale);
-  const onChange = event => {
-    console.log(event.target)
-  }
-  return { value, onChange }
-}
+import { useState } from "react"
+import {useInput} from './useInput'
 
 const App = () => {
   // UseState
-  const [item, setItem] = useState(1);
+  const [item, setItem] = useState(1)
   const incrementItem = () => setItem(item + 1)
   const decrementItem = () => setItem(item - 1)
 
   // UseInpue
-  const name = useInput('Mr.')
+  const maxLen = (value) => !value.includes("@")
+  const name = useInput('Mr.', maxLen)
 
   return (
     <div className='App'>
