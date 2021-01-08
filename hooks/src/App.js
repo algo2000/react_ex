@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useInput } from './useInput'
 import { useTabs } from './useTabs'
 
@@ -26,6 +26,13 @@ const App = () => {
   //UseTab
   const { currentItem, changeItem } = useTabs(0, content)
 
+  //UseEffect
+  const [number, setNumber] = useState(0)
+  const [aNumber, setAnumber] = useState(0)
+  
+  const sayHelllo = () => console.log('hello');
+  useEffect(sayHelllo, [number])
+
   return (
     <div className='App'>
       <div>
@@ -39,10 +46,15 @@ const App = () => {
       </div>
       <div>
         <h1>3. UseTab</h1>
-        {content.map((section,index) => (
+        {content.map((section, index) => (
           <button onClick={() => changeItem(index)}>{section.tab}</button>
         ))}
         <div>{currentItem.content}</div>
+      </div>
+      <div>
+        <h1>4. UseEffect</h1>
+        <button onClick={() => setNumber(number + 1)}>{number}</button>
+        <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
       </div>
     </div>
   );
