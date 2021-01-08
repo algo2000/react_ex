@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useInput } from './useInput'
 import { useTabs } from './useTabs'
+import { useTitle } from './useTitle'
 
 const content = [
   {
@@ -29,10 +30,13 @@ const App = () => {
   //UseEffect
   const [number, setNumber] = useState(0)
   const [aNumber, setAnumber] = useState(0)
-  
+
   const sayHelllo = () => console.log('hello');
   useEffect(sayHelllo, [number])
 
+  //UseTitle
+  const titleUpdator = useTitle('Loading...')
+  setTimeout(() => titleUpdator('Home'), 5000)
   return (
     <div className='App'>
       <div>
@@ -50,6 +54,11 @@ const App = () => {
           <button onClick={() => changeItem(index)}>{section.tab}</button>
         ))}
         <div>{currentItem.content}</div>
+      </div>
+      <div>
+        <h1>4. UseEffect</h1>
+        <button onClick={() => setNumber(number + 1)}>{number}</button>
+        <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
       </div>
       <div>
         <h1>4. UseEffect</h1>
