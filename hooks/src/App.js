@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useInput } from './useInput'
 import { useTabs } from './useTabs'
 import { useTitle } from './useTitle'
+import { useClick } from './useClick'
 
 const content = [
   {
@@ -37,17 +38,24 @@ const App = () => {
   //UseTitle
   const titleUpdator = useTitle('Loading...')
   setTimeout(() => titleUpdator('Home'), 5000)
+
+  //UseClick
+  const sayHello = () => console.log('say hello');
+  const title = useClick(sayHello);
+
   return (
     <div className='App'>
       <div>
-        <h1>1. UseState</h1>
-        <button onClick={decrementItem}>Decrement</button>
-        <button onClick={incrementItem}>Increment</button>
+        <h1>5. UseClick</h1>
+        <h1 ref={title}>Hi</h1>
       </div>
+
       <div>
-        <h1>2. UseInput</h1>
-        <input placeholder='Name' {...name} />
+        <h1>4. UseEffect</h1>
+        <button onClick={() => setNumber(number + 1)}>{number}</button>
+        <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
       </div>
+
       <div>
         <h1>3. UseTab</h1>
         {content.map((section, index) => (
@@ -55,15 +63,16 @@ const App = () => {
         ))}
         <div>{currentItem.content}</div>
       </div>
+
       <div>
-        <h1>4. UseEffect</h1>
-        <button onClick={() => setNumber(number + 1)}>{number}</button>
-        <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
+        <h1>2. UseInput</h1>
+        <input placeholder='Name' {...name} />
       </div>
+
       <div>
-        <h1>4. UseEffect</h1>
-        <button onClick={() => setNumber(number + 1)}>{number}</button>
-        <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
+        <h1>1. UseState</h1>
+        <button onClick={decrementItem}>Decrement</button>
+        <button onClick={incrementItem}>Increment</button>
       </div>
     </div>
   );
