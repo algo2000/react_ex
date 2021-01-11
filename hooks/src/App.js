@@ -5,6 +5,7 @@ import { useTitle } from './useTitle'
 import { useClick } from './useClick'
 import { useConfirm } from './useConfirm'
 import { usePreventLeave } from './usePreventLeave'
+import { useBeforeLeave } from "./useBeforeLeave"
 
 const content = [
   {
@@ -52,9 +53,18 @@ const App = () => {
 
   //UsePreventLeave
   const {enablePrevent, disablePrevent} = usePreventLeave()
+  
+  //UseBeforeLeave
+  const begForLife = () => console.log('pis dont leave')
+  useBeforeLeave(begForLife);
 
   return (
     <div className='App'>
+      <div>
+        <h1>8. UseBeforeLeave</h1>
+        
+      </div>
+
       <div>
         <h1>7. UsePreventLeave</h1>
         <button onClick={enablePrevent}>Protect</button>
