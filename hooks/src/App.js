@@ -7,6 +7,7 @@ import { useConfirm } from './useConfirm'
 import { usePreventLeave } from './usePreventLeave'
 import { useBeforeLeave } from "./useBeforeLeave"
 import { useFadeIn } from "./useFadeIn"
+import { useNetwork } from "./useNetwork"
 
 const content = [
   {
@@ -53,18 +54,28 @@ const App = () => {
   const confirmDelete = useConfirm('Are you sure', deleteWorld, abort);
 
   //UsePreventLeave
-  const {enablePrevent, disablePrevent} = usePreventLeave()
-  
+  const { enablePrevent, disablePrevent } = usePreventLeave()
+
   //UseBeforeLeave
   const begForLife = () => console.log('pis dont leave')
   useBeforeLeave(begForLife);
 
   //UseFadeIn
-  const fadeInH2 = useFadeIn(1,2);
-  const fadeInp = useFadeIn(5,10);
+  const fadeInH2 = useFadeIn(1, 2)
+  const fadeInp = useFadeIn(5, 10)
+
+  //UseNetwork
+  const handleNetworkChange = (online) => {
+    console.log(online ? 'We juse went online' : 'We are offline')
+  }
+  const onLine = useNetwork(handleNetworkChange)
 
   return (
     <div className='App'>
+      <div>
+        <h1>10. UseNetwork</h1>
+        <h1>{onLine ? "Online" : "Offline"}</h1>
+      </div>
       <div>
         <h1>9. UseFadeIn</h1>
         <h2 {...fadeInH2}>HI</h2>
