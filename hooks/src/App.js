@@ -6,6 +6,7 @@ import { useClick } from './useClick'
 import { useConfirm } from './useConfirm'
 import { usePreventLeave } from './usePreventLeave'
 import { useBeforeLeave } from "./useBeforeLeave"
+import { useFadeIn } from "./useFadeIn"
 
 const content = [
   {
@@ -58,11 +59,20 @@ const App = () => {
   const begForLife = () => console.log('pis dont leave')
   useBeforeLeave(begForLife);
 
+  //UseFadeIn
+  const fadeInH2 = useFadeIn(1,2);
+  const fadeInp = useFadeIn(5,10);
+
   return (
     <div className='App'>
       <div>
+        <h1>9. UseFadeIn</h1>
+        <h2 {...fadeInH2}>HI</h2>
+        <p {...fadeInp}>hihihihihihihihi</p>
+      </div>
+
+      <div>
         <h1>8. UseBeforeLeave</h1>
-        
       </div>
 
       <div>
