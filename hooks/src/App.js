@@ -8,6 +8,7 @@ import { usePreventLeave } from './usePreventLeave'
 import { useBeforeLeave } from "./useBeforeLeave"
 import { useFadeIn } from "./useFadeIn"
 import { useNetwork } from "./useNetwork"
+import { useScroll } from "./useScroll"
 
 const content = [
   {
@@ -70,8 +71,15 @@ const App = () => {
   }
   const onLine = useNetwork(handleNetworkChange)
 
+  //UseScroll
+  const {y} = useScroll();
+
   return (
-    <div className='App'>
+    <div className='App' style={{height: "1000vh"}}>
+      <div>
+        <h1>11. UseScroll</h1>
+        <h2 style={{position: "fixed", color: y> 100 ? "red" : "blue"}}>Hi</h2>
+      </div>
       <div>
         <h1>10. UseNetwork</h1>
         <h1>{onLine ? "Online" : "Offline"}</h1>
