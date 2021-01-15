@@ -10,6 +10,7 @@ import { useFadeIn } from "./useFadeIn"
 import { useNetwork } from "./useNetwork"
 import { useScroll } from "./useScroll"
 import { UseFullscreen } from "./useFullscreen"
+import { useNotification } from "./useNotification"
 
 const content = [
   {
@@ -73,27 +74,36 @@ const App = () => {
   const onLine = useNetwork(handleNetworkChange)
 
   //UseScroll
-  const {y} = useScroll()
+  const { y } = useScroll()
 
   //UseFullscreen
   const onFullS = (isFull) => {
     console.log(isFull ? 'We are full' : 'We are small')
   }
-  const {element, triggerFull, exitFull} = UseFullscreen(onFullS)
+  const { element, triggerFull, exitFull } = UseFullscreen(onFullS)
+
+  //UseNotification
+  const triggerNotification = useNotification('Can I steel your kimchi?', {
+    body: 'I Love kimchi dont you'
+  })
 
   return (
-    <div className='App' style={{height: "1000vh"}}>
+    <div className='App' style={{ height: "1000vh" }}>
+      <div>
+        <h1>13. UseNotification</h1>
+        <button onClick={triggerNotification}>Hello</button>
+      </div>
       <div>
         <h1>12. UseFullscreen</h1>
         <div ref={element}>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOL9bbVFuzP628nNfTg3Fd7rYH_k4XsvMMgw&usqp=CAU"/>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOL9bbVFuzP628nNfTg3Fd7rYH_k4XsvMMgw&usqp=CAU" />
           <button onClick={exitFull}>Exit Fullscreen</button>
         </div>
         <button onClick={triggerFull}>Make Fullscreen</button>
       </div>
       <div>
         <h1>11. UseScroll</h1>
-        <h2 style={{position: "fixed", color: y> 100 ? "red" : "blue"}}>Hi</h2>
+        <h2 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>Hi</h2>
       </div>
       <div>
         <h1>10. UseNetwork</h1>
