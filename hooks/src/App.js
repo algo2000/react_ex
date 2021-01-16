@@ -11,6 +11,7 @@ import { useNetwork } from "./useNetwork"
 import { useScroll } from "./useScroll"
 import { UseFullscreen } from "./useFullscreen"
 import { useNotification } from "./useNotification"
+import { useAxios } from "./useAxios"
 
 const content = [
   {
@@ -87,8 +88,19 @@ const App = () => {
     body: 'I Love kimchi dont you'
   })
 
+  //UseAxios
+  const {loading, data, error, refetch} = useAxios({
+    url:'https://cors-anywhere.herokuapp.com/https://yts.am/api/v2/list_movies.json'
+  })
+
   return (
     <div className='App' style={{ height: "1000vh" }}>
+      <div>
+        <h1>14. UseAxios</h1>
+        <h2>{data && data.status}</h2>
+        <h3>{loading && 'Loading'}</h3>
+        <button onClick={refetch}>Refetch</button>
+      </div>
       <div>
         <h1>13. UseNotification</h1>
         <button onClick={triggerNotification}>Hello</button>
