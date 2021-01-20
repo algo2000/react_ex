@@ -1,7 +1,8 @@
 import React from 'react'
-import UseInputIndex from './UseInput';
-import UseStateIndex from './UseState';
-import UseStateIndex2 from './UseState2';
+import UseEffectIndex from './UseEffect'
+import UseInputIndex from './UseInput'
+import UseStateIndex from './UseState'
+import UseStateIndex2 from './UseState2'
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <UseStateIndex />
       <UseStateIndex2 />
       <UseInputIndex />
+      <UseEffectIndex />
     </div>
   )
 }
 
-export default App;
+export default App
