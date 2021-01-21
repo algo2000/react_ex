@@ -1,7 +1,7 @@
 import { useTitle } from "./UseTitle"
 
 function UseTitleIndex() {
-    const titleUploader = useTitle('Loading...')
+    const titleUploader: Function = useTitle('Loading...')
     setTimeout(() => titleUploader('title'), 3000)
     return (
         <div>
