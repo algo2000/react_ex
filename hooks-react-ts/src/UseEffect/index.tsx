@@ -13,7 +13,7 @@ function UseEffectIndex() {
 
     return (
         <div>
-            <h1>3. UseEffect</h1>
+            <h1>4. UseEffect</h1>
             <button onClick={(): void => setNumber(number + 1)}>UseEffect : {number}</button>
             <button onClick={(): void => setAnumber(aNumber + 1)}>Non-UseEffect : {aNumber}</button>
         </div>
