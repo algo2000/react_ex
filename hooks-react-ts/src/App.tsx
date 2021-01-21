@@ -4,6 +4,7 @@ import UseEffectIndex from './UseEffect'
 import UseInputIndex from './UseInput'
 import UseStateIndex from './UseState'
 import UseStateIndex2 from './UseState2'
+import UseTitleIndex from './UseTitle'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <UseInputIndex />
       <UseEffectIndex />
       <UseClickIndex />
+      <UseTitleIndex />
     </div>
   )
 }
