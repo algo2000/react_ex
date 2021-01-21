@@ -5,6 +5,7 @@ import UseInputIndex from './UseInput'
 import UseStateIndex from './UseState'
 import UseStateIndex2 from './UseState2'
 import UseTitleIndex from './UseTitle'
+import UseBeforeLeaveIndex from './UseBeforeLeave'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <UseEffectIndex />
       <UseClickIndex />
       <UseTitleIndex />
+      <UseBeforeLeaveIndex />
     </div>
   )
 }
