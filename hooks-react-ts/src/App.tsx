@@ -6,6 +6,7 @@ import UseStateIndex from './UseState'
 import UseStateIndex2 from './UseState2'
 import UseTitleIndex from './UseTitle'
 import UseBeforeLeaveIndex from './UseBeforeLeave'
+import UseFadInIndex from './UseFadeIn'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <UseClickIndex />
       <UseTitleIndex />
       <UseBeforeLeaveIndex />
+      <UseFadInIndex />
     </div>
   )
 }
