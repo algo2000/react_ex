@@ -1,5 +1,3 @@
-import React from 'react'
-
 export type TodoType = {
     text: string,
     isCompleted: Boolean

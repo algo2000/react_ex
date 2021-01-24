@@ -1,11 +1,11 @@
-import React, { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 
 type TodoFormProps = {
     addTodo: Function
 }
 
 function TodoForm({ addTodo }: TodoFormProps) {
-    const [value, setValue] = React.useState('')
+    const [value, setValue] = useState('')
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
